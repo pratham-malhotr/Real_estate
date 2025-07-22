@@ -1,0 +1,164 @@
+/* Elegant Market Trends Styles */
+.market-trends-page {
+  padding: 2rem 0;
+  text-align: center;
+  min-height: 70vh;
+  background: linear-gradient(135deg, #232946 0%, #e52e71 100%);
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 1200px;
+  min-width: 0;
+  margin: 0 auto;
+}
+.market-trends-page:before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100%;
+  max-width: 1200px;
+  min-width: 0;
+  background: radial-gradient(circle at 80% 20%, #ff8a00 0%, transparent 60%),
+              radial-gradient(circle at 20% 80%, #43e97b 0%, transparent 60%);
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+}
+.market-trends-page h1 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+.trends-search-bar {
+  margin: 1.5rem auto 2rem auto;
+  display: flex;
+  justify-content: center;
+}
+.trends-search-bar input {
+  padding: 0.7rem 1.2rem;
+  border-radius: 2rem;
+  border: 1px solid var(--border);
+  font-size: 1.1rem;
+  min-width: 220px;
+  max-width: 320px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  background: var(--bg-card);
+  color: var(--text-main);
+}
+.trends-search-bar input:focus {
+  border: 1.5px solid var(--primary);
+  box-shadow: 0 4px 16px rgba(0,119,204,0.08);
+}
+.trends-chart-container, .trends-bar-chart, .trends-table, .market-trends-page:before {
+  width: 100%;
+  max-width: 1200px;
+  min-width: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.trends-chart-container {
+  margin: 0 0 2.5rem 0;
+  display: flex;
+  justify-content: center;
+  background: rgba(255,255,255,0.18);
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  animation: fadeInFeatures 1.1s;
+  z-index: 2;
+}
+.trends-bar-chart {
+  height: 200px;
+  display: block;
+}
+.bar-group rect {
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.08));
+  transition: fill 0.2s;
+}
+.bar-group rect:hover {
+  fill: var(--secondary);
+}
+.trends-table {
+  margin: 2rem 0;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.18);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  overflow: hidden;
+  animation: fadeInCard 0.7s;
+  z-index: 2;
+}
+.trends-table th, .trends-table td {
+  border: 1px solid var(--border);
+  padding: 1rem 1.2rem;
+  font-size: 1.1rem;
+}
+.trends-table th {
+  background: #f5faff;
+  color: var(--primary);
+  font-weight: 600;
+}
+body.dark .trends-table th {
+  background: #232946;
+  color: var(--primary);
+}
+.trends-table tr:nth-child(even) {
+  background: var(--table-row-alt);
+}
+.trends-table tr:hover {
+  background: var(--table-row-hover);
+  transition: background 0.2s;
+}
+.city-icon {
+  font-size: 1.3rem;
+  margin-right: 0.3rem;
+}
+/* Animations */
+.animate-fade-in { animation: fadeInHero 0.8s; }
+.animate-fade-in-up { animation: fadeInFeatures 1.1s; }
+@keyframes fadeInHero {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInFeatures {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInCard {
+  to { opacity: 1; transform: none; }
+}
+@media (max-width: 700px) {
+  .trends-table th, .trends-table td {
+    padding: 0.7rem 0.5rem;
+    font-size: 1rem;
+  }
+} 
+
+/* Bulletproof overflow and width fix */
+.market-trends-page {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  box-sizing: border-box !important;
+}
+.trends-chart-container,
+.trends-bar-chart,
+.trends-table,
+.market-trends-page:before {
+  width: 100% !important;
+  max-width: 100vw !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+  overflow-x: hidden !important;
+}
+.bar-group rect {
+  min-width: 0 !important;
+} 

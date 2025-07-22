@@ -1,0 +1,55 @@
+/* Elegant About Page Styles */
+.about-page {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  animation: fadeInHero 0.8s;
+}
+.about-card {
+  background: var(--bg-card);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem;
+  max-width: 500px;
+  text-align: center;
+  animation: fadeInCard 0.7s;
+}
+.about-icon {
+  font-size: 2.7rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.about-card h1 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+.about-card p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+}
+.about-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.about-list li {
+  margin-bottom: 0.7rem;
+  font-size: 1.05rem;
+  color: var(--text-main);
+}
+.animate-fade-in { animation: fadeInHero 0.8s; }
+.animate-fade-in-up { animation: fadeInFeatures 1.1s; }
+@keyframes fadeInHero {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInFeatures {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInCard {
+  to { opacity: 1; transform: none; }
+} 

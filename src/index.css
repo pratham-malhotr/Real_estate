@@ -1,38 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --primary: #0077cc;
+  --secondary: #43e97b;
+  --accent: #f5576c;
+  --bg-main: #e0eafc;
+  --bg-gradient: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+  --bg-card: #fff;
+  --bg-table: #fff;
+  --bg-footer: linear-gradient(90deg, #0077cc 0%, #43e97b 100%);
+  --text-main: #222;
+  --text-light: #fff;
+  --shadow: 0 4px 32px rgba(0,0,0,0.10);
+  --border: #e0eafc;
+  --table-row-alt: #f7fbff;
+  --table-row-hover: #e0eafc;
+  --bg-hero: linear-gradient(100deg, #0077cc 60%, #5fcfff 100%);
+  --bg-features: #fff;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 4rem;
+  --font-main: 'Poppins', Arial, sans-serif;
+  --font-size-base: 18px;
+  --font-size-lg: 2.5rem;
+  --font-size-xl: 3.2rem;
+}
+body.dark {
+  --primary: #43e97b;
+  --secondary: #0077cc;
+  --accent: #f5576c;
+  --bg-main: #161a23;
+  --bg-gradient: linear-gradient(120deg, #181c24 0%, #232946 100%);
+  --bg-card: #232946;
+  --bg-table: #232946;
+  --bg-footer: linear-gradient(90deg, #232946 0%, #181c24 100%);
+  --text-main: #f7fbff;
+  --text-light: #fff;
+  --shadow: 0 4px 32px rgba(0,0,0,0.25);
+  --border: #232946;
+  --table-row-alt: #232946;
+  --table-row-hover: #232946;
+  --bg-hero: linear-gradient(100deg, #232946 60%, #181c24 100%);
+  --bg-features: #232946;
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+html, body, #root {
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: var(--bg-gradient, #f7fbff);
+  color: var(--text-main, #222);
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;
+}
+.main-bg {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.main-content {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem 1rem 1rem;
+  box-sizing: border-box;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: inherit;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, border 0.2s;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-main);
+  font-weight: 700;
+  margin: 0 0 var(--space-sm) 0;
+}
+h1 {
+  font-size: var(--font-size-xl);
+}
+h2 {
+  font-size: var(--font-size-lg);
+}
+
+p, ul, ol {
+  margin: 0 0 var(--space-sm) 0;
+}
+
+ul, ol {
+  padding-left: var(--space-sm);
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: var(--primary);
+  text-decoration: none;
 }
 a:hover {
-  color: #535bf2;
+  text-decoration: underline;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--bg-main);
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+::-webkit-scrollbar-thumb {
+  background: #b2c7e6;
+  border-radius: 4px;
 }
 
 button {
@@ -42,27 +121,50 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--primary);
+  color: var(--text-light);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background 0.2s, color 0.2s;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: var(--secondary);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Utility classes */
+.hide { display: none !important; }
+.flex { display: flex; }
+.center { justify-content: center; align-items: center; }
+.mt-lg { margin-top: var(--space-lg); }
+.mb-lg { margin-bottom: var(--space-lg); }
+
+/* Scroll-to-top button */
+.scroll-to-top {
+  position: fixed;
+  right: 2.2rem;
+  bottom: 2.2rem;
+  z-index: 1000;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 2rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
 }
+.scroll-to-top:hover {
+  background: var(--secondary);
+  color: #fff;
+  opacity: 1;
+}
+

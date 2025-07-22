@@ -1,0 +1,84 @@
+.auth-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeInBg 0.3s;
+}
+@keyframes fadeInBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.auth-modal {
+  background: #fff;
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 1.2rem;
+  min-width: 320px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  position: relative;
+  animation: popIn 0.35s;
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.7rem;
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.2s;
+}
+.close-btn:hover {
+  color: #0077cc;
+}
+.auth-modal input {
+  display: block;
+  width: 100%;
+  margin: 0.7rem 0;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+.auth-modal button[type="submit"] {
+  width: 100%;
+  padding: 0.7rem;
+  background: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  margin-top: 0.7rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.auth-modal button[type="submit"]:hover {
+  background: #005fa3;
+}
+.switch-mode {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+.switch-mode button {
+  background: none;
+  border: none;
+  color: #0077cc;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 1rem;
+  margin-left: 0.2rem;
+}
+.error {
+  color: #ff4d4f;
+  margin-bottom: 0.5rem;
+  font-size: 0.98rem;
+} 
